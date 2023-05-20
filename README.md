@@ -3,7 +3,8 @@ Simple extensions that do some usefull work by calling it.
 
 + Saving the copied svg code to file (as a download)
 ```javascript
-javascript:(function(){
+javascript:(
+  function(){
     var svgCode = prompt('Enter SVG code:');
     if (!svgCode) {
       alert('No SVG code entered.');
@@ -19,5 +20,21 @@ javascript:(function(){
     downloadLink.click();
     document.body.removeChild(downloadLink);
     URL.revokeObjectURL(svgURL);
-})();
+  }
+)();
+```
+
++ Inspector tool
+
+```javascript
+javascript:(
+  function(){
+    var script = document.createElement('script');
+    script.src="https://cdn.jsdelivr.net/npm/eruda";
+    document.body.appendChild(script);
+    script.onload=function(){
+      eruda.init();
+    }
+  }
+)();
 ```
